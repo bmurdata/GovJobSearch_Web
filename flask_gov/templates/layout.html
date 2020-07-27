@@ -1,0 +1,21 @@
+<doctype html>
+    <html>
+        <head>
+            <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/main.css') }}">
+            
+            <title>NYC Gov Job Search</title>
+        </head>
+        <body>
+            <header>
+                <h1>NYC Gov Job Search</h1>
+                <nav>
+                    <ul>
+                        <li><a href="index">Home</a></li>
+              <!--         <li><a href="read">read</a></li>
+                        <li><a href="create">create</a></li>-->  
+                    </ul>
+                </nav>
+            </header>
+            {% block content %}{% endblock %}
+        </body>
+    </html>

@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+{% block content %}
+<script src="{{ url_for('static',filename='js/main.js') }}"></script>
+<p>There were {{num_item}} items returned.</p>
+
+<button onclick="exportTableToCSV('results.csv')">Download CSV</button>
+
+<table border="1">
+    <tr>
+        <th>JobId</th>
+        <th>Job Title</th>
+        <th>Job Link</th>
+        <th>Agency Code</th>
+        <th>Agency Name</th>
+        <th>Department</th>
+        <th>Location</th>
+        <th>Listed Agency</th>
+        <th>Posted Date</th>
+
+    </tr>
+    {% for i in range(num_item) %}
+        <tr>
+            <td>{{data[i][0]}}</td>
+            <td><b>{{data[i][1]}}</b></td>
+            <td><a href="{{data[i][2]}}" >Link to Job</a></td>
+            {% for j in range(3,9) %}
+            <td>{{data[i][j]}}</td>
+            {% endfor %}
+            <!-- <td>
+                <a href="update?{{data[i][0]}}">edit</a>
+                <a href="delete?{{data[i][0]}}">delete</a>
+            </td> -->
+        </tr>
+    {% endfor %}
+</table>
+{% endblock %}

@@ -1,0 +1,11 @@
+html{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.searchForm {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+

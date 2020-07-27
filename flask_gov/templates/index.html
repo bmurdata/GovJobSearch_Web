@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+{% block content %}
+        <h1>NYC Gov Job Search Main Page</h1>
+        <div class="searchForm">
+        
+       
+                <form method="get" action="read">
+                        <p>There are {{num_items}} items in the database.</p>
+                        <p>Search form</p>
+                        <label>Title
+                                <input type="text" name="title">
+                        </label>
+                        <br>
+                        <label>Job ID Number
+                                <input type="text" name="jobnum">
+                        </label>
+                        <br>
+                        <label>Agency Code(056,etc.)
+                                <input type="text" name="shortagency">
+                        </label>
+                        <br>
+                        <label>Full Agency Name(only those with jobs are listed)
+                                <select name="longagency">
+                                        <option value="" selected></option>
+                                        {% for agency in agencylist[1:]%}
+                                        <option value="{{agency[0]}}">{{agency[0]}}</option>
+                                        {% endfor %}
+
+                                </select>
+
+                        </label>
+                        <br>
+                                <input type="submit" value="Search">
+
+                </form>
+        </div>
+
+{% endblock %}
