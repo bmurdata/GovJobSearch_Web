@@ -4,26 +4,25 @@ import os
 import sys
 import json
 import mysql.connector
-
+from dbconn import dbconfig
 app = Flask(__name__)
 
-mydb = mysql.connector.connect(
-    host="",
-    port="",
-    user="",
-    passwd="",
-    database="nyc_gov_jobs"
-)
 
-mycursor = mydb.cursor()
+mydb= mysql.connector.connect(host=dbconfig['host'],port=dbconfig['port'],user=dbconfig['user'],passwd=dbconfig['passwd'],database=dbconfig['database'])
+#mydb=mysql.connector.connect(dbconfig)
+mycursor=mydb.cursor()
 
 # mycursor.execute("SHOW TABLES")
 mycursor.execute("select COUNT(*) from search_by_agencycode")
 myresult = mycursor.fetchall()
 print(myresult)
+mycursor.close()
+
 @app.route('/')
 @app.route("/index")
 def index():
+    mydb= mysql.connector.connect(host=dbconfig['host'],port=dbconfig['port'],user=dbconfig['user'],passwd=dbconfig['passwd'],database=dbconfig['database'])
+    mycursor=mydb.cursor()
     mycursor.execute("select COUNT(*) from search_by_agencycode")
     myresult = mycursor.fetchall()
 
@@ -31,7 +30,6 @@ def index():
 
     mycursor.execute(get_options)
     get_options=mycursor.fetchall()
-    print(get_options)
     return render_template('index.html',num_items=myresult[0][0],agencylist=get_options)
 
 @app.route('/read',methods=['GET', 'POST'])
@@ -39,7 +37,8 @@ def reader():
 
     if request.method == "GET":
         req = request.args
-
+        mydb= mysql.connector.connect(host=dbconfig['host'],port=dbconfig['port'],user=dbconfig['user'],passwd=dbconfig['passwd'],database=dbconfig['database'])
+        mycursor=mydb.cursor()
         mycursor = mydb.cursor()
 
         sql = '''SELECT * FROM `search_by_agencycode` 

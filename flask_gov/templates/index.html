@@ -1,9 +1,13 @@
 {% extends "layout.html" %}
 {% block content %}
         <h1>NYC Gov Job Search Main Page</h1>
-        <div class="searchForm">
         
-       
+	<div class="descrip">
+	<p>This is a web interface to search for NYC Government jobs open to the public. To use you can enter a Title, jobid(if you have it), agency code,, or select the full agency name. </p>
+<p><For Links: if you run into errors, (Page could not be loaded), then go back to the previous page and click it again. </p>
+	</div>
+        
+        <div class="searchForm">
                 <form method="get" action="read">
                         <p>There are {{num_items}} items in the database.</p>
                         <p>Search form</p>
