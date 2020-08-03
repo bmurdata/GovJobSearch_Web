@@ -1,5 +1,3 @@
-import mysql.connector
-
 dbconfig ={
     "host":"localhost",
     "port":"3306",
