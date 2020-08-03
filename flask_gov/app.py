@@ -7,6 +7,7 @@ import mysql.connector
 from dbconn import dbconfig
 app = Flask(__name__)
 
+
 # Database configuration dictionary
 # Database configuration dictionary
 
@@ -21,6 +22,7 @@ def index():
     database="nyc_gov_jobs")
     mycursor=mydb.cursor()
 
+
     mycursor.execute("select COUNT(*) from search_by_agencycode")
     myresult = mycursor.fetchall()
 
@@ -28,7 +30,6 @@ def index():
 
     mycursor.execute(get_options)
     get_options=mycursor.fetchall()
-    print(get_options)
     return render_template('index.html',num_items=myresult[0][0],agencylist=get_options)
 
 @app.route('/read',methods=['GET', 'POST'])
@@ -36,6 +37,7 @@ def reader():
 
     if request.method == "GET":
         req = request.args
+
         mydb = mysql.connector.connect(
         host=dbconfig['host'],
         port=dbconfig['port'],
@@ -43,6 +45,7 @@ def reader():
         passwd=dbconfig['passwd'],
         database="nyc_gov_jobs")
         mycursor=mydb.cursor()
+
 
         sql = '''SELECT * FROM `search_by_agencycode` 
         WHERE `Title` Like "{title}%" AND 

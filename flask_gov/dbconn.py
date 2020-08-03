@@ -1,3 +1,4 @@
+
 # Database configuration dictionary
 dbconfig ={
     "host":"",
@@ -6,3 +7,4 @@ dbconfig ={
    "passwd":"",
     "database":""
 }
+
