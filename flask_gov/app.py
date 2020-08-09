@@ -8,21 +8,21 @@ from dbconn import dbconfig
 app = Flask(__name__)
 
 
-mydb= mysql.connector.connect(host=dbconfig['host'],port=dbconfig['port'],user=dbconfig['user'],passwd=dbconfig['passwd'],database=dbconfig['database'])
-#mydb=mysql.connector.connect(dbconfig)
-mycursor=mydb.cursor()
-
-# mycursor.execute("SHOW TABLES")
-mycursor.execute("select COUNT(*) from search_by_agencycode")
-myresult = mycursor.fetchall()
-print(myresult)
-mycursor.close()
+# Database configuration dictionary
+# Database configuration dictionary
 
 @app.route('/')
 @app.route("/index")
 def index():
-    mydb= mysql.connector.connect(host=dbconfig['host'],port=dbconfig['port'],user=dbconfig['user'],passwd=dbconfig['passwd'],database=dbconfig['database'])
+    mydb = mysql.connector.connect(
+    host=dbconfig['host'],
+    port=dbconfig['port'],
+    user=dbconfig['user'],
+    passwd=dbconfig['passwd'],
+    database="nyc_gov_jobs")
     mycursor=mydb.cursor()
+
+
     mycursor.execute("select COUNT(*) from search_by_agencycode")
     myresult = mycursor.fetchall()
 
@@ -37,9 +37,15 @@ def reader():
 
     if request.method == "GET":
         req = request.args
-        mydb= mysql.connector.connect(host=dbconfig['host'],port=dbconfig['port'],user=dbconfig['user'],passwd=dbconfig['passwd'],database=dbconfig['database'])
+
+        mydb = mysql.connector.connect(
+        host=dbconfig['host'],
+        port=dbconfig['port'],
+        user=dbconfig['user'],
+        passwd=dbconfig['passwd'],
+        database="nyc_gov_jobs")
         mycursor=mydb.cursor()
-        mycursor = mydb.cursor()
+
 
         sql = """SELECT * FROM `search_by_agencycode`
         WHERE `Title` Like %s AND

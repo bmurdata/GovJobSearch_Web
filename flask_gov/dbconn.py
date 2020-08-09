@@ -1,8 +1,10 @@
+
+# Database configuration dictionary
 dbconfig ={
-    "host":"localhost",
-    "port":"3306",
-    "user":"pi",
-   "passwd":"piman",
-    "database":"nyc_gov_jobs"
+    "host":"",
+    "port":"",
+    "user":"",
+   "passwd":"",
+    "database":""
 }
-print("Database connection established")
+
