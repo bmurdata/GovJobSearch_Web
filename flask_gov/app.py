@@ -27,7 +27,7 @@ def index():
     mycursor.execute("select COUNT(*) from search_by_agencycode")
     myresult = mycursor.fetchall()
 
-    get_options="SELECT LongCategory from search_by_agencycode GROUP BY LongCategory"
+    get_options="SELECT LongCategory from search_by_agencycode GROUP BY LongCategory ORDER BY LongCategory"
 
     mycursor.execute(get_options)
     get_options=mycursor.fetchall()
