@@ -41,17 +41,15 @@ def reader():
         mycursor=mydb.cursor()
         mycursor = mydb.cursor()
 
-        sql = '''SELECT * FROM `search_by_agencycode` 
-        WHERE `Title` Like "{title}%" AND 
-        `jobNum` Like "{jobNum}%" AND 
-        `shortCategory` Like '{shortcat}%' AND
-        `LongCategory` Like '{longcat}%'
-        ORDER BY `Title`;'''
-        
-        print(sql)
-        sql=sql.format(title=req['title'],jobNum=req['jobnum'],shortcat=req['shortagency'],longcat=req['longagency'])
-        print(sql)
-        mycursor.execute(sql)
+        sql = """SELECT * FROM `search_by_agencycode`
+        WHERE `Title` Like %s AND
+        `jobNum` Like %s AND
+        `shortCategory` Like %s AND
+        `LongCategory` Like %s
+        ORDER BY `Title`;"""
+        #sql=sql.format(title=req['title'],jobNum=req['jobnum'],shortcat=req['shortagency'],longcat=req['longagency'])
+        params=(req['title']+'%',req['jobnum']+'%',req['shortagency']+'%',req['longagency']+'%')
+        mycursor.execute(sql,params)
         results=mycursor.fetchall()
         num_items=len(results)
         print(num_items)
