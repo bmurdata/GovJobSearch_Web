@@ -14,6 +14,7 @@ app = Flask(__name__)
 @app.route('/')
 @app.route("/index")
 def index():
+    print("Connection made")
     mydb = mysql.connector.connect(
     host=dbconfig['host'],
     port=dbconfig['port'],
