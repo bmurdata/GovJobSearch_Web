@@ -1,21 +1,16 @@
 {% extends "layout.html" %}
-{% block styles %}
-<!-- <style>
-.tablestats {
-  width: 400px;
-  height: 100px;
-  display: flex;
-  justify-content: center;
-}
-</style> -->
-{% endblock %}
-{% block content %}
+{% block head %}
 <script src="{{ url_for('static',filename='js/main.js') }}"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css">
 
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
+
+{% endblock %}
+{% block content %}
+<script src="{{ url_for('static',filename='js/main.js') }}"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 
 <div class="tablestats">
