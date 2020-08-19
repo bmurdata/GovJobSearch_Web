@@ -1,21 +1,10 @@
 {% extends "layout.html" %}
-{% block styles %}
-<!-- <style>
-.tablestats {
-  width: 400px;
-  height: 100px;
-  display: flex;
-  justify-content: center;
-}
-</style> -->
+{% block head %}
+
 {% endblock %}
 {% block content %}
 <script src="{{ url_for('static',filename='js/main.js') }}"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css">
-
-<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
 
 
 <div class="tablestats">
@@ -55,15 +44,65 @@
     {% endfor %}
 </tbody>
 </table>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css">
+
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
 
 
+<!--
 <script>
-$(document).ready( function () {
+ $(document).ready( function () {
     $('#results_table').DataTable({
 	"aaSorting":[[1,'asc']],
 	"lengthMenu":[10,25,50,75,100,500,1000]
 } );
-} );</script>
+} );</script>-->
 
+<script>
+$(document).ready(function() {
+    var groupColumn = 7;
+    var collapsedGroups = {};
+    var table = $('#results_table').DataTable({
+        "columnDefs": [
+            { "visible": false, "targets": groupColumn }
+        ],
+        "order": [[ groupColumn, 'asc' ]],
+        "displayLength": 25,
+	"lengthMenu":[10,25,50,75,100,500,1000],
+        "drawCallback": function ( settings ) {
+            var api = this.api();
+            var rows = api.rows( {page:'current'} ).nodes();
+            var last=null;
+ 
+            api.column(groupColumn, {page:'current'} ).data().each( function ( group, i ) {
+                if ( last !== group ) {
+                    $(rows).eq( i ).before(
+                        '<tr class="group"><td colspan="8">'+group+'</td></tr>'
+                    );
+ 
+                    last = group;
+                }
+            } );
+        }
+    } );
+ 
+    // Order by the grouping
+    $('#results_table tbody').on( 'click', 'tr.group', function () {
+        var currentOrder = table.order()[0];
+        if ( currentOrder[0] === groupColumn && currentOrder[1] === 'asc' ) {
+            table.order( [ groupColumn, 'desc' ] ).draw();
+        }
+        else {
+            table.order( [ groupColumn, 'asc' ] ).draw();
+        }
+    } );
+      $('#results_table tbody').on('click', 'tr.group-start', function () {
+        var name = $(this).data('name');
+        collapsedGroups[name] = !collapsedGroups[name];
+        table.draw(false);
+    }); 
+} );</script>
 {% endblock %}
 

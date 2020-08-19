@@ -1,7 +1,15 @@
+*{
+/*   border:1px solid orange;*/
+   font-family:verdana;
+}
+
 header{
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color:rgb(51, 153, 255);
+    border-radius:10px;
+    padding: 5px;
 }
 
 .searchForm {
@@ -10,3 +18,7 @@ header{
     justify-content: center;
 }
 
+tr.group,
+tr.group:hover {
+    background-color: #ddd !important;
+}

@@ -55,7 +55,7 @@ def reader():
         `LongCategory` Like %s
         ORDER BY `Title`;"""
         #sql=sql.format(title=req['title'],jobNum=req['jobnum'],shortcat=req['shortagency'],longcat=req['longagency'])
-        params=(req['title']+'%',req['jobnum']+'%',req['shortagency']+'%',req['longagency']+'%')
+        params=('%'+req['title']+'%','%'+req['jobnum']+'%','%'+req['shortagency']+'%','%'+req['longagency']+'%')
         mycursor.execute(sql,params)
         results=mycursor.fetchall()
         num_items=len(results)
