@@ -1,3 +1,8 @@
+*{
+/*   border:1px solid orange;*/
+   font-family:verdana;
+}
+
 header{
     display: flex;
     align-items: center;
@@ -13,3 +18,7 @@ header{
     justify-content: center;
 }
 
+tr.group,
+tr.group:hover {
+    background-color: #ddd !important;
+}
