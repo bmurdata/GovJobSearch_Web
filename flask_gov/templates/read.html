@@ -6,6 +6,29 @@
 <script src="{{ url_for('static',filename='js/main.js') }}"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
+ 
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.10.21/b-1.6.3/b-colvis-1.6.3/b-html5-1.6.3/b-print-1.6.3/kt-2.5.2/r-2.2.5/rg-1.1.2/datatables.min.js"></script>
+
+ <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+    <link href="https://nightly.datatables.net/css/jquery.dataTables.css" rel="stylesheet" type="text/css" />
+    <script src="https://nightly.datatables.net/js/jquery.dataTables.js"></script>
+
+    <link href="https://cdn.datatables.net/rowgroup/1.0.2/css/rowGroup.dataTables.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.datatables.net/rowgroup/1.0.2/js/dataTables.rowGroup.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.html5.js"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/vfs_fonts.js"></script>
+
+    <link href="https://cdn.datatables.net/buttons/1.5.1/css/buttons.dataTables.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.datatables.net/buttons/1.5.1/js/dataTables.buttons.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.colVis.min.js"></script>
+    <script type="text/javascript" language="javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+
+    <script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.colVis.min.js"></script>
 
 <div class="tablestats">
 <p>There were {{num_item}} items returned.</p>
@@ -44,11 +67,6 @@
     {% endfor %}
 </tbody>
 </table>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css">
-
-<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
 
 
 <!--
@@ -59,50 +77,39 @@
 	"lengthMenu":[10,25,50,75,100,500,1000]
 } );
 } );</script>-->
-
 <script>
 $(document).ready(function() {
-    var groupColumn = 7;
-    var collapsedGroups = {};
+ var collapsedGroups = {};
+
     var table = $('#results_table').DataTable({
-        "columnDefs": [
-            { "visible": false, "targets": groupColumn }
-        ],
-        "order": [[ groupColumn, 'asc' ]],
-        "displayLength": 25,
-	"lengthMenu":[10,25,50,75,100,500,1000],
-        "drawCallback": function ( settings ) {
-            var api = this.api();
-            var rows = api.rows( {page:'current'} ).nodes();
-            var last=null;
- 
-            api.column(groupColumn, {page:'current'} ).data().each( function ( group, i ) {
-                if ( last !== group ) {
-                    $(rows).eq( i ).before(
-                        '<tr class="group"><td colspan="8">'+group+'</td></tr>'
-                    );
- 
-                    last = group;
-                }
-            } );
+      order: [[7, 'asc']],
+      "lengthMenu":[10,25,50,75,100,500,1000],
+      rowGroup: {
+        // Uses the 'row group' plugin
+        dataSrc: 7,
+        startRender: function (rows, group) {
+            var collapsed = !!collapsedGroups[group];
+
+            rows.nodes().each(function (r) {
+                r.style.display = collapsed ? 'none' : '';
+            });    
+
+            // Add category name to the <tr>. NOTE: Hardcoded colspan
+            return $('<tr/>')
+                .append('<td colspan="8">' + group + ' (' + rows.count() + ')</td>')
+                .attr('data-name', group)
+                .toggleClass('collapsed', collapsed);
         }
-    } );
- 
-    // Order by the grouping
-    $('#results_table tbody').on( 'click', 'tr.group', function () {
-        var currentOrder = table.order()[0];
-        if ( currentOrder[0] === groupColumn && currentOrder[1] === 'asc' ) {
-            table.order( [ groupColumn, 'desc' ] ).draw();
-        }
-        else {
-            table.order( [ groupColumn, 'asc' ] ).draw();
-        }
-    } );
-      $('#results_table tbody').on('click', 'tr.group-start', function () {
+      }
+    });
+
+   $('#results_table tbody').on('click', 'tr.group-start', function () {
         var name = $(this).data('name');
         collapsedGroups[name] = !collapsedGroups[name];
         table.draw(false);
-    }); 
-} );</script>
+    });  
+  
+});
+</script>
 {% endblock %}
 
