@@ -1,8 +1,14 @@
 *{
-/*   border:1px solid orange;*/
-   font-family:verdana;
+/*   border:1px solid orange;
+  */ font-family:verdana;
 }
-
+nav li a{
+text-decoration:none;
+text-align:center;
+}
+nav ul{
+list-style-type:none;
+}
 header{
     display: flex;
     align-items: center;
