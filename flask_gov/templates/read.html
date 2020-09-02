@@ -3,6 +3,8 @@
 
 {% endblock %}
 {% block content %}
+<section class="main">
+
 <script src="{{ url_for('static',filename='js/main.js') }}"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
@@ -35,6 +37,7 @@
 
 <button onclick="exportTableToCSV('results.csv')">Download CSV</button>
 </div>
+
 <table border="1px" id="results_table" >
 <thead>    
 <tr>
@@ -68,6 +71,7 @@
 </tbody>
 </table>
 
+</section>
 
 <!--
 <script>
