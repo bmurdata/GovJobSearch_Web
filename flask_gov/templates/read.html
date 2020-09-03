@@ -38,7 +38,7 @@
 <button onclick="exportTableToCSV('results.csv')">Download CSV</button>
 </div>
 
-<table border="1px" id="results_table" >
+<table border="1px" id="results_table">
 <thead>    
 <tr>
         <th>JobId</th>
@@ -87,6 +87,7 @@ $(document).ready(function() {
 
     var table = $('#results_table').DataTable({
       order: [[7, 'asc']],
+      "scrollX":true,
       "lengthMenu":[10,25,50,75,100,500,1000],
       rowGroup: {
         // Uses the 'row group' plugin
