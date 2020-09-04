@@ -31,7 +31,9 @@
     <script type="text/javascript" language="javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
 
     <script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.colVis.min.js"></script>
+    <script src="https://cdn.datatables.net/rowreorder/1.2.7/js/dataTables.rowReorder.min.js"></script>
 
+   <script src="https://cdn.datatables.net/responsive/2.2.5/js/dataTables.responsive.min.js"></script>
 <div class="tablestats">
 <p>There were {{num_item}} items returned.</p>
 
@@ -87,7 +89,10 @@ $(document).ready(function() {
 
     var table = $('#results_table').DataTable({
       order: [[7, 'asc']],
-      "scrollX":true,
+      rowReorder: {
+            selector: 'td:nth-child(2)'
+        },
+        responsive: true,
       "lengthMenu":[10,25,50,75,100,500,1000],
       rowGroup: {
         // Uses the 'row group' plugin
