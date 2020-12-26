@@ -1,29 +1,30 @@
 {% extends "layout.html" %}
 {% block content %}
-        <h1>NYC Gov Job Search Main Page</h1>
+<section class="main">
+        <h1>NYC Gov Job Search</h1>
         
-	<div class="descrip">
-	<p>This is a web interface to search for NYC Government jobs open to the public. To use you can enter a Title, jobid(if you have it), agency code,, or select the full agency name. </p>
-<p><For Links: if you run into errors, (Page could not be loaded), then go back to the previous page and click it again. </p>
+	<div class="description">
+	<p>This is a web interface to search for NYC Government jobs open to the public. To use you can enter a Title, Jobid number, Agency Code, or select the full agency name. </p>
+<p>For Links: if you run into errors, (Page could not be loaded), then go back to the previous page and click it again. </p>
 	</div>
         
         <div class="searchForm">
                 <form method="get" action="read">
                         <p>There are {{num_items}} items in the database.</p>
                         <p>Search form</p>
-                        <label>Title
+                        <label>Title<br>
                                 <input type="text" name="title">
                         </label>
                         <br>
-                        <label>Job ID Number
+                        <label>Job ID Number<br>
                                 <input type="text" name="jobnum">
                         </label>
                         <br>
-                        <label>Agency Code(056,etc.)
+                        <label>Agency Code(056,etc.)<br>
                                 <input type="text" name="shortagency">
                         </label>
                         <br>
-                        <label>Full Agency Name(only those with jobs are listed)
+                        <label>Full Agency Name(only those with jobs are listed)<br>
                                 <select name="longagency">
                                         <option value="" selected></option>
                                         {% for agency in agencylist[1:]%}
@@ -38,5 +39,5 @@
 
                 </form>
         </div>
-
+</section>
 {% endblock %}
