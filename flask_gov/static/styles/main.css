@@ -35,7 +35,10 @@ color: white;
 nav ul{
 list-style-type:none;
 }
-
+nav ul li {
+    display: inline-block;
+    margin-left: 10px;
+}
 header{
    /* width:20%;
     height:10%;*/
