@@ -48,12 +48,12 @@ def reader():
         mycursor=mydb.cursor()
 
 
-        sql = """SELECT * FROM `search_by_agencycode`
-        WHERE `Title` Like %s AND
-        `jobNum` Like %s AND
-        `shortCategory` Like %s AND
-        `LongCategory` Like %s
-        ORDER BY `Title`;"""
+        sql = """SELECT a.*, d.post_until FROM `search_by_agencycode` as a LEFT OUTER join `job_info_short` as d ON a.jobNum=d.jobNum
+        WHERE a.`Title` Like %s AND
+        a.`jobNum` Like %s AND
+        a.`shortCategory` Like %s AND
+        a.`LongCategory` Like %s
+        ORDER BY a.`Title`;"""
         #sql=sql.format(title=req['title'],jobNum=req['jobnum'],shortcat=req['shortagency'],longcat=req['longagency'])
         params=('%'+req['title']+'%','%'+req['jobnum']+'%','%'+req['shortagency']+'%','%'+req['longagency']+'%')
         mycursor.execute(sql,params)

@@ -52,6 +52,7 @@
         <th>Location</th>
         <th>Listed Agency</th>
         <th>Posted Date</th>
+        <th>Post Until</th>
 
     </tr>
 </thead>
@@ -61,7 +62,7 @@
             <td>{{data[i][0]}}</td>
             <td><b>{{data[i][1]}}</b></td>
             <td><a href="{{data[i][2]}}" >Link to Job</a></td>
-            {% for j in range(3,9) %}
+            {% for j in range(3,10) %}
             <td>{{data[i][j]}}</td>
             {% endfor %}
             <!-- <td>
@@ -106,7 +107,7 @@ $(document).ready(function() {
 
             // Add category name to the <tr>. NOTE: Hardcoded colspan
             return $('<tr/>')
-                .append('<td colspan="9">' + group + ' (' + rows.count() + ')</td>')
+                .append('<td colspan="10">' + group + ' (' + rows.count() + ')</td>')
                 .attr('data-name', group)
                 .toggleClass('collapsed', collapsed);
         }
