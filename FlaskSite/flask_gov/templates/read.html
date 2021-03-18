@@ -1,10 +1,5 @@
 {% extends "layout.html" %}
 {% block head %}
-
-{% endblock %}
-{% block content %}
-<section class="main">
-
 <script src="{{ url_for('static',filename='js/main.js') }}"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
@@ -34,6 +29,11 @@
     <script src="https://cdn.datatables.net/rowreorder/1.2.7/js/dataTables.rowReorder.min.js"></script>
 
    <script src="https://cdn.datatables.net/responsive/2.2.5/js/dataTables.responsive.min.js"></script>
+{% endblock %}
+{% block content %}
+<section class="main">
+
+
 <div class="tablestats">
 <p>There were {{num_item}} items returned.</p>
 
