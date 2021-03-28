@@ -1,0 +1,74 @@
+﻿@model nycgovwork.Models.job_info_details
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>job_info_details</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="add_info" class="control-label"></label>
+                <input asp-for="add_info" class="form-control" />
+                <span asp-validation-for="add_info" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="hours_shift" class="control-label"></label>
+                <input asp-for="hours_shift" class="form-control" />
+                <span asp-validation-for="hours_shift" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="job_descrip" class="control-label"></label>
+                <input asp-for="job_descrip" class="form-control" />
+                <span asp-validation-for="job_descrip" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="min_qual" class="control-label"></label>
+                <input asp-for="min_qual" class="form-control" />
+                <span asp-validation-for="min_qual" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="preferred_skills" class="control-label"></label>
+                <input asp-for="preferred_skills" class="form-control" />
+                <span asp-validation-for="preferred_skills" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="recruit_contact" class="control-label"></label>
+                <input asp-for="recruit_contact" class="form-control" />
+                <span asp-validation-for="recruit_contact" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="residency_req" class="control-label"></label>
+                <input asp-for="residency_req" class="form-control" />
+                <span asp-validation-for="residency_req" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="to_apply" class="control-label"></label>
+                <input asp-for="to_apply" class="form-control" />
+                <span asp-validation-for="to_apply" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="work_location" class="control-label"></label>
+                <input asp-for="work_location" class="form-control" />
+                <span asp-validation-for="work_location" class="text-danger"></span>
+            </div>
+            <input type="hidden" asp-for="jobNum" />
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

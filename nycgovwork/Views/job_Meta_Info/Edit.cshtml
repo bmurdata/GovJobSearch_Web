@@ -1,0 +1,109 @@
+﻿@model nycgovwork.Models.job_info_short
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>job_info_short</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="hiring_agency" class="control-label"></label>
+                <input asp-for="hiring_agency" class="form-control" />
+                <span asp-validation-for="hiring_agency" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="jobLink" class="control-label"></label>
+                <input asp-for="jobLink" class="form-control" />
+                <span asp-validation-for="jobLink" class="text-danger"></span>
+            </div>
+            <input type="hidden" asp-for="jobNum" />
+            <div class="form-group">
+                <label asp-for="job_ID" class="control-label"></label>
+                <input asp-for="job_ID" class="form-control" />
+                <span asp-validation-for="job_ID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="business_title" class="control-label"></label>
+                <input asp-for="business_title" class="form-control" />
+                <span asp-validation-for="business_title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="civil_title" class="control-label"></label>
+                <input asp-for="civil_title" class="form-control" />
+                <span asp-validation-for="civil_title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="title_class" class="control-label"></label>
+                <input asp-for="title_class" class="form-control" />
+                <span asp-validation-for="title_class" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="job_category" class="control-label"></label>
+                <input asp-for="job_category" class="form-control" />
+                <span asp-validation-for="job_category" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="career_level" class="control-label"></label>
+                <input asp-for="career_level" class="form-control" />
+                <span asp-validation-for="career_level" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="work_location" class="control-label"></label>
+                <input asp-for="work_location" class="form-control" />
+                <span asp-validation-for="work_location" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="division_work_unit" class="control-label"></label>
+                <input asp-for="division_work_unit" class="form-control" />
+                <span asp-validation-for="division_work_unit" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="total_openings" class="control-label"></label>
+                <input asp-for="total_openings" class="form-control" />
+                <span asp-validation-for="total_openings" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="title_code" class="control-label"></label>
+                <input asp-for="title_code" class="form-control" />
+                <span asp-validation-for="title_code" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="level" class="control-label"></label>
+                <input asp-for="level" class="form-control" />
+                <span asp-validation-for="level" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="proposed_salary_range" class="control-label"></label>
+                <input asp-for="proposed_salary_range" class="form-control" />
+                <span asp-validation-for="proposed_salary_range" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="posted" class="control-label"></label>
+                <input asp-for="posted" class="form-control" />
+                <span asp-validation-for="posted" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="post_until" class="control-label"></label>
+                <input asp-for="post_until" class="form-control" />
+                <span asp-validation-for="post_until" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

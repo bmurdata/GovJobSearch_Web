@@ -1,0 +1,114 @@
+﻿@model nycgovwork.Models.job_info_short
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>job_info_short</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.hiring_agency)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.hiring_agency)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.jobLink)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.jobLink)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.job_ID)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.job_ID)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.business_title)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.business_title)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.civil_title)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.civil_title)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.title_class)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.title_class)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.job_category)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.job_category)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.career_level)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.career_level)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.work_location)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.work_location)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.division_work_unit)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.division_work_unit)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.total_openings)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.total_openings)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.title_code)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.title_code)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.level)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.level)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.proposed_salary_range)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.proposed_salary_range)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.posted)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.posted)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.post_until)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.post_until)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.jobNum">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

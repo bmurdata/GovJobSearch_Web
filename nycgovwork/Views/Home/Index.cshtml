@@ -2,127 +2,52 @@
     ViewData["Title"] = "Search Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
-<section class="main">
-    <h1>NYC Gov Job Search</h1>
 
-    <div class="description">
-        <p>This is a web interface to search for NYC Government jobs open to the public. To use you can enter a Title, Jobid number, Agency Code, or select the full agency name. </p>
-        <p>For Links: if you run into errors, (Page could not be loaded), then go back to the previous page and click it again. </p>
-    </div>
+    <section class="main">
+        <h1>NYC Gov Job Search</h1>
 
-    <div class="searchForm">
-        <form method="get" action="read">
-            <p></p>
-            <p>Search form</p>
-            <label>
-                Title<br>
-                <input type="text" name="title">
-            </label>
-            <br>
-            <label>
-                Job ID Number<br>
-                <input type="text" name="jobnum">
-            </label>
-            <br>
-            <label>
-                Agency Code(056,etc.)<br>
-                <input type="text" name="shortagency">
-            </label>
-            <br>
-            <label>
-                Full Agency Name(only those with jobs are listed)<br>
-                <select name="longagency">
-                    <option value="" selected=""></option>
+        <div class="description">
+            <p>This is a web interface to search for NYC Government jobs open to the public. To use you can enter a Title, Jobid number, Agency Code, or select the full agency name. </p>
+            <p>For Links: if you run into errors, (Page could not be loaded), then go back to the previous page and click it again. </p>
+        </div>
 
-                    <option value="BOARD OF CORRECTIONS">BOARD OF CORRECTIONS</option>
+        <div class="searchForm">
+            <form method="get" action="read">
+                <p></p>
+                <p>Search form</p>
+                <label>
+                    Title<br>
+                    <input type="text" name="title">
+                </label>
+                <br>
+                <label>
+                    Job ID Number<br>
+                    <input type="text" name="jobnum">
+                </label>
+                <br>
+                <label>
+                    Agency Code(056,etc.)<br>
+                    <input type="text" name="shortagency">
+                </label>
+                <br>
+                <label>
+                    Full Agency Name(only those with jobs are listed)<br>
+                    <select name="longagency">
+                        <option value="" selected=""></option>
 
-                    <option value="BOROUGH PRESIDENT-MANHATTA">BOROUGH PRESIDENT-MANHATTA</option>
+                        <option value="BOARD OF CORRECTIONS">BOARD OF CORRECTIONS</option>
 
-                    <option value="BOROUGH PRESIDENT-QUEENS">BOROUGH PRESIDENT-QUEENS</option>
+                        <option value="DEPARTMENT OF PARKS &amp; RECR">DEPARTMENT OF PARKS &amp; RECR</option>
 
-                    <option value="BUSINESS INTEGRITY COMMISS">BUSINESS INTEGRITY COMMISS</option>
-
-                    <option value="CIVILIAN COMPLAINT REVIEW">CIVILIAN COMPLAINT REVIEW</option>
-
-                    <option value="COMMISSION ON HUMAN RIGHTS">COMMISSION ON HUMAN RIGHTS</option>
-
-                    <option value="DEPARTMENT FOR THE AGING">DEPARTMENT FOR THE AGING</option>
-
-                    <option value="DEPARTMENT OF BUILDINGS">DEPARTMENT OF BUILDINGS</option>
-
-                    <option value="DEPARTMENT OF CITYWIDE ADM">DEPARTMENT OF CITYWIDE ADM</option>
-
-                    <option value="DEPARTMENT OF CONSUMER AFF">DEPARTMENT OF CONSUMER AFF</option>
-
-                    <option value="DEPARTMENT OF CORRECTION">DEPARTMENT OF CORRECTION</option>
-
-                    <option value="DEPARTMENT OF CULTURAL AFF">DEPARTMENT OF CULTURAL AFF</option>
-
-                    <option value="DEPARTMENT OF DESIGN AND C">DEPARTMENT OF DESIGN AND C</option>
-
-                    <option value="DEPARTMENT OF ENVIRONMENTA">DEPARTMENT OF ENVIRONMENTA</option>
-
-                    <option value="DEPARTMENT OF HEALTH AND M">DEPARTMENT OF HEALTH AND M</option>
-
-                    <option value="DEPARTMENT OF HOMELESS SER">DEPARTMENT OF HOMELESS SER</option>
-
-                    <option value="DEPARTMENT OF INFORMATION">DEPARTMENT OF INFORMATION</option>
-
-                    <option value="DEPARTMENT OF INVESTIGATIO">DEPARTMENT OF INVESTIGATIO</option>
-
-                    <option value="DEPARTMENT OF PARKS &amp; RECR">DEPARTMENT OF PARKS &amp; RECR</option>
-
-                    <option value="DEPARTMENT OF PROBATION">DEPARTMENT OF PROBATION</option>
-
-                    <option value="DEPARTMENT OF SANITATION">DEPARTMENT OF SANITATION</option>
-
-                    <option value="DEPARTMENT OF TRANSPORTATI">DEPARTMENT OF TRANSPORTATI</option>
-
-                    <option value="DEPARTMENT OF YOUTH AND CO">DEPARTMENT OF YOUTH AND CO</option>
-
-                    <option value="DISTRICT ATTORNEY-RICHMOND">DISTRICT ATTORNEY-RICHMOND</option>
-
-                    <option value="FINANCIAL INFORMATION SERV">FINANCIAL INFORMATION SERV</option>
-
-                    <option value="FIRE DEPARTMENT">FIRE DEPARTMENT</option>
-
-                    <option value="HOUSING PRESERVATION &amp; DEV">HOUSING PRESERVATION &amp; DEV</option>
-
-                    <option value="HRA/DEPARTMENT OF SOCIAL S">HRA/DEPARTMENT OF SOCIAL S</option>
-
-                    <option value="LAW DEPARTMENT">LAW DEPARTMENT</option>
-
-                    <option value="MAYOR'S OFFICE OF CONTRACT">MAYOR'S OFFICE OF CONTRACT</option>
-
-                    <option value="N.Y.C. HOUSING AUTHORITY">N.Y.C. HOUSING AUTHORITY</option>
-
-                    <option value="NYC EMPLOYEES' RETIREMENT">NYC EMPLOYEES' RETIREMENT</option>
-
-                    <option value="OFFICE OF ADMINISTRATIVE T">OFFICE OF ADMINISTRATIVE T</option>
-
-                    <option value="OFFICE OF COLLECTIVE BARGA">OFFICE OF COLLECTIVE BARGA</option>
-
-                    <option value="OFFICE OF EMERGENCY MANAGE">OFFICE OF EMERGENCY MANAGE</option>
-
-                    <option value="OFFICE OF MANAGEMENT AND B">OFFICE OF MANAGEMENT AND B</option>
-
-                    <option value="OFFICE OF PAYROLL ADMINIST">OFFICE OF PAYROLL ADMINIST</option>
-
-                    <option value="OFFICE OF THE COMPTROLLER">OFFICE OF THE COMPTROLLER</option>
-
-                    <option value="POLICE DEPARTMENT">POLICE DEPARTMENT</option>
+                        <option value="POLICE DEPARTMENT">POLICE DEPARTMENT</option>
 
 
-                </select>
+                    </select>
 
-            </label>
-            <br>
-            <input type="submit" value="Search">
+                </label>
+                <br>
+                <input type="submit" value="Search">
 
-        </form>
-    </div>
-</section>
+            </form>
+        </div>
+    </section>

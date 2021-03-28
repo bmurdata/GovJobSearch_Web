@@ -1,0 +1,83 @@
+﻿@model IEnumerable<nycgovwork.Models.job_info_details>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.add_info)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.hours_shift)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.job_descrip)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.min_qual)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.preferred_skills)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.recruit_contact)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.residency_req)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.to_apply)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.work_location)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.add_info)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.hours_shift)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.job_descrip)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.min_qual)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.preferred_skills)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.recruit_contact)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.residency_req)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.to_apply)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.work_location)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.jobNum">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.jobNum">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.jobNum">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

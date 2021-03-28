@@ -8,7 +8,8 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-
+using nycgovwork.Data;
+using Microsoft.EntityFrameworkCore;
 namespace nycgovwork
 {
     public class Startup
@@ -24,6 +25,9 @@ namespace nycgovwork
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
+            services.AddDbContext<nycgovworkContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("nycgovworkContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -1,0 +1,125 @@
+﻿@model IEnumerable<nycgovwork.Models.job_info_short>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.hiring_agency)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.jobLink)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.job_ID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.business_title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.civil_title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.title_class)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.job_category)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.career_level)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.work_location)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.division_work_unit)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.total_openings)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.title_code)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.level)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.proposed_salary_range)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.posted)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.post_until)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.hiring_agency)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.jobLink)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.job_ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.business_title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.civil_title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.title_class)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.job_category)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.career_level)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.work_location)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.division_work_unit)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.total_openings)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.title_code)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.level)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.proposed_salary_range)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.posted)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.post_until)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.jobNum">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.jobNum">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.jobNum">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
